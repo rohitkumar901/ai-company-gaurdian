@@ -1,0 +1,194 @@
+timestamp,username,ip_address,login_result,event_type,device_info,country_code
+2026-10-25 09:08:17,grace_fin,192.168.1.150,SUCCESS,LOGIN,Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_7) Safari/605.1.15,US
+2026-10-25 09:17:59,hank_sec,10.0.1.22,SUCCESS,LOGIN,Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_7) Safari/605.1.15,US
+2026-10-25 09:28:17,alice_dev,10.0.1.15,SUCCESS,LOGIN,Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_7) Safari/605.1.15,US
+2026-10-25 09:32:30,charlie_sales,10.0.1.15,SUCCESS,LOGIN,Mozilla/5.0 (Windows NT 10.0; Win64; x64) Chrome/128.0,US
+2026-10-25 09:37:30,eve_qa,10.0.2.45,SUCCESS,LOGIN,Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_7) Safari/605.1.15,US
+2026-10-25 09:38:02,david_ops,10.0.1.15,SUCCESS,LOGIN,Mozilla/5.0 (Windows NT 10.0; Win64; x64; rv:129.0) Gecko/20100101 Firefox/129.0,US
+2026-10-25 10:06:20,bob_hr,10.0.1.22,SUCCESS,LOGIN,Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_7) Safari/605.1.15,US
+2026-10-25 10:20:16,david_ops,192.168.1.150,SUCCESS,LOGIN,Mozilla/5.0 (Windows NT 10.0; Win64; x64; rv:129.0) Gecko/20100101 Firefox/129.0,US
+2026-10-25 10:35:42,charlie_sales,192.168.1.101,SUCCESS,LOGIN,Mozilla/5.0 (Windows NT 10.0; Win64; x64; rv:129.0) Gecko/20100101 Firefox/129.0,US
+2026-10-25 10:54:33,alice_dev,10.0.1.15,SUCCESS,LOGIN,Mozilla/5.0 (Windows NT 10.0; Win64; x64; rv:129.0) Gecko/20100101 Firefox/129.0,US
+2026-10-25 11:03:58,charlie_sales,10.0.1.22,SUCCESS,LOGIN,Mozilla/5.0 (Windows NT 10.0; Win64; x64) Chrome/128.0,US
+2026-10-25 11:16:14,david_ops,192.168.1.101,SUCCESS,LOGIN,Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_7) Safari/605.1.15,US
+2026-10-25 12:15:35,grace_fin,192.168.1.150,SUCCESS,LOGIN,Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_7) Safari/605.1.15,US
+2026-10-25 12:53:22,grace_fin,10.0.1.22,SUCCESS,LOGIN,Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_7) Safari/605.1.15,US
+2026-10-25 13:08:14,bob_hr,10.0.2.45,SUCCESS,LOGIN,Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_7) Safari/605.1.15,US
+2026-10-25 13:11:27,grace_fin,10.0.1.22,SUCCESS,LOGIN,Mozilla/5.0 (Windows NT 10.0; Win64; x64) Chrome/128.0,US
+2026-10-25 13:37:30,charlie_sales,10.0.1.15,SUCCESS,LOGIN,Mozilla/5.0 (Windows NT 10.0; Win64; x64) Chrome/128.0,US
+2026-10-25 13:37:37,bob_hr,10.0.2.45,SUCCESS,LOGIN,Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_7) Safari/605.1.15,US
+2026-10-25 14:15:46,bob_hr,192.168.1.101,SUCCESS,LOGIN,Mozilla/5.0 (Windows NT 10.0; Win64; x64) Chrome/128.0,US
+2026-10-25 14:17:31,bob_hr,10.0.1.22,SUCCESS,LOGIN,Mozilla/5.0 (Windows NT 10.0; Win64; x64) Chrome/128.0,US
+2026-10-25 14:51:28,eve_qa,10.0.2.45,FAILURE,LOGIN,Mozilla/5.0 (Windows NT 10.0; Win64; x64) Chrome/128.0,US
+2026-10-25 14:54:08,david_ops,10.0.2.45,SUCCESS,LOGIN,Mozilla/5.0 (Windows NT 10.0; Win64; x64; rv:129.0) Gecko/20100101 Firefox/129.0,US
+2026-10-25 14:56:27,grace_fin,10.0.1.15,SUCCESS,LOGIN,Mozilla/5.0 (Windows NT 10.0; Win64; x64) Chrome/128.0,US
+2026-10-25 15:01:29,david_ops,192.168.1.101,SUCCESS,LOGIN,Mozilla/5.0 (Windows NT 10.0; Win64; x64) Chrome/128.0,US
+2026-10-25 15:17:10,david_ops,10.0.2.45,SUCCESS,LOGIN,Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_7) Safari/605.1.15,US
+2026-10-25 15:30:42,hank_sec,10.0.1.22,SUCCESS,LOGIN,Mozilla/5.0 (Windows NT 10.0; Win64; x64) Chrome/128.0,US
+2026-10-25 15:36:27,hank_sec,10.0.1.15,SUCCESS,LOGIN,Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_7) Safari/605.1.15,US
+2026-10-25 15:57:39,charlie_sales,192.168.1.150,SUCCESS,LOGIN,Mozilla/5.0 (Windows NT 10.0; Win64; x64; rv:129.0) Gecko/20100101 Firefox/129.0,US
+2026-10-25 16:33:36,eve_qa,192.168.1.101,SUCCESS,LOGIN,Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_7) Safari/605.1.15,US
+2026-10-25 17:23:28,charlie_sales,10.0.1.15,SUCCESS,LOGIN,Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_7) Safari/605.1.15,US
+2026-10-25 17:23:58,grace_fin,192.168.1.101,SUCCESS,LOGIN,Mozilla/5.0 (Windows NT 10.0; Win64; x64; rv:129.0) Gecko/20100101 Firefox/129.0,US
+2026-10-25 17:31:25,alice_dev,192.168.1.101,SUCCESS,LOGIN,Mozilla/5.0 (Windows NT 10.0; Win64; x64) Chrome/128.0,US
+2026-10-26 09:37:04,hank_sec,10.0.1.15,SUCCESS,LOGIN,Mozilla/5.0 (Windows NT 10.0; Win64; x64) Chrome/128.0,US
+2026-10-26 09:56:18,bob_hr,192.168.1.150,SUCCESS,LOGIN,Mozilla/5.0 (Windows NT 10.0; Win64; x64) Chrome/128.0,US
+2026-10-26 10:13:15,hank_sec,10.0.1.15,SUCCESS,LOGIN,Mozilla/5.0 (Windows NT 10.0; Win64; x64) Chrome/128.0,US
+2026-10-26 10:45:29,eve_qa,192.168.1.150,SUCCESS,LOGIN,Mozilla/5.0 (Windows NT 10.0; Win64; x64; rv:129.0) Gecko/20100101 Firefox/129.0,US
+2026-10-26 10:46:22,bob_hr,192.168.1.101,SUCCESS,LOGIN,Mozilla/5.0 (Windows NT 10.0; Win64; x64) Chrome/128.0,US
+2026-10-26 10:46:47,eve_qa,10.0.1.15,SUCCESS,LOGIN,Mozilla/5.0 (Windows NT 10.0; Win64; x64) Chrome/128.0,US
+2026-10-26 11:14:14,grace_fin,10.0.1.22,SUCCESS,LOGIN,Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_7) Safari/605.1.15,US
+2026-10-26 11:58:23,alice_dev,10.0.2.45,SUCCESS,LOGIN,Mozilla/5.0 (Windows NT 10.0; Win64; x64) Chrome/128.0,US
+2026-10-26 12:13:52,eve_qa,10.0.2.45,SUCCESS,LOGIN,Mozilla/5.0 (Windows NT 10.0; Win64; x64; rv:129.0) Gecko/20100101 Firefox/129.0,US
+2026-10-26 12:20:52,charlie_sales,10.0.2.45,SUCCESS,LOGIN,Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_7) Safari/605.1.15,US
+2026-10-26 12:49:03,charlie_sales,10.0.1.22,SUCCESS,LOGIN,Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_7) Safari/605.1.15,US
+2026-10-26 12:49:46,eve_qa,192.168.1.150,SUCCESS,LOGIN,Mozilla/5.0 (Windows NT 10.0; Win64; x64; rv:129.0) Gecko/20100101 Firefox/129.0,US
+2026-10-26 13:02:16,charlie_sales,10.0.2.45,SUCCESS,LOGIN,Mozilla/5.0 (Windows NT 10.0; Win64; x64; rv:129.0) Gecko/20100101 Firefox/129.0,US
+2026-10-26 13:05:20,alice_dev,10.0.1.15,SUCCESS,LOGIN,Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_7) Safari/605.1.15,US
+2026-10-26 13:19:13,grace_fin,192.168.1.101,SUCCESS,LOGIN,Mozilla/5.0 (Windows NT 10.0; Win64; x64; rv:129.0) Gecko/20100101 Firefox/129.0,US
+2026-10-26 14:17:57,hank_sec,10.0.2.45,SUCCESS,LOGIN,Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_7) Safari/605.1.15,US
+2026-10-26 14:30:06,grace_fin,10.0.1.22,SUCCESS,LOGIN,Mozilla/5.0 (Windows NT 10.0; Win64; x64; rv:129.0) Gecko/20100101 Firefox/129.0,US
+2026-10-26 15:15:47,alice_dev,10.0.1.15,SUCCESS,LOGIN,Mozilla/5.0 (Windows NT 10.0; Win64; x64; rv:129.0) Gecko/20100101 Firefox/129.0,US
+2026-10-26 15:20:39,charlie_sales,10.0.2.45,SUCCESS,LOGIN,Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_7) Safari/605.1.15,US
+2026-10-26 15:40:42,david_ops,10.0.1.22,SUCCESS,LOGIN,Mozilla/5.0 (Windows NT 10.0; Win64; x64) Chrome/128.0,US
+2026-10-26 15:55:04,david_ops,192.168.1.150,SUCCESS,LOGIN,Mozilla/5.0 (Windows NT 10.0; Win64; x64) Chrome/128.0,US
+2026-10-26 16:03:23,hank_sec,10.0.1.22,SUCCESS,LOGIN,Mozilla/5.0 (Windows NT 10.0; Win64; x64; rv:129.0) Gecko/20100101 Firefox/129.0,US
+2026-10-26 16:05:38,david_ops,192.168.1.101,SUCCESS,LOGIN,Mozilla/5.0 (Windows NT 10.0; Win64; x64; rv:129.0) Gecko/20100101 Firefox/129.0,US
+2026-10-26 16:39:56,grace_fin,10.0.1.22,SUCCESS,LOGIN,Mozilla/5.0 (Windows NT 10.0; Win64; x64) Chrome/128.0,US
+2026-10-26 16:47:44,eve_qa,10.0.1.22,SUCCESS,LOGIN,Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_7) Safari/605.1.15,US
+2026-10-26 16:49:50,bob_hr,192.168.1.150,SUCCESS,LOGIN,Mozilla/5.0 (Windows NT 10.0; Win64; x64) Chrome/128.0,US
+2026-10-26 17:00:53,david_ops,192.168.1.150,SUCCESS,LOGIN,Mozilla/5.0 (Windows NT 10.0; Win64; x64) Chrome/128.0,US
+2026-10-26 17:09:16,david_ops,10.0.1.22,SUCCESS,LOGIN,Mozilla/5.0 (Windows NT 10.0; Win64; x64; rv:129.0) Gecko/20100101 Firefox/129.0,US
+2026-10-26 17:25:26,grace_fin,10.0.2.45,SUCCESS,LOGIN,Mozilla/5.0 (Windows NT 10.0; Win64; x64) Chrome/128.0,US
+2026-10-26 23:10:00,charlie_sales,198.51.100.42,FAILURE,LOGIN,Python-requests/2.31.0,RU
+2026-10-26 23:10:25,charlie_sales,198.51.100.42,FAILURE,LOGIN,Python-requests/2.31.0,RU
+2026-10-26 23:10:50,charlie_sales,198.51.100.42,FAILURE,LOGIN,Python-requests/2.31.0,RU
+2026-10-26 23:11:15,charlie_sales,198.51.100.42,FAILURE,LOGIN,Python-requests/2.31.0,RU
+2026-10-26 23:11:40,charlie_sales,198.51.100.42,FAILURE,LOGIN,Python-requests/2.31.0,RU
+2026-10-26 23:12:05,charlie_sales,198.51.100.42,FAILURE,LOGIN,Python-requests/2.31.0,RU
+2026-10-26 23:12:30,charlie_sales,198.51.100.42,FAILURE,LOGIN,Python-requests/2.31.0,RU
+2026-10-26 23:12:55,charlie_sales,198.51.100.42,FAILURE,LOGIN,Python-requests/2.31.0,RU
+2026-10-27 09:06:52,hank_sec,10.0.1.22,SUCCESS,LOGIN,Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_7) Safari/605.1.15,US
+2026-10-27 10:05:48,grace_fin,192.168.1.101,SUCCESS,LOGIN,Mozilla/5.0 (Windows NT 10.0; Win64; x64) Chrome/128.0,US
+2026-10-27 10:21:19,alice_dev,10.0.2.45,SUCCESS,LOGIN,Mozilla/5.0 (Windows NT 10.0; Win64; x64; rv:129.0) Gecko/20100101 Firefox/129.0,US
+2026-10-27 10:25:30,hank_sec,10.0.1.22,SUCCESS,LOGIN,Mozilla/5.0 (Windows NT 10.0; Win64; x64; rv:129.0) Gecko/20100101 Firefox/129.0,US
+2026-10-27 10:38:15,bob_hr,192.168.1.101,SUCCESS,LOGIN,Mozilla/5.0 (Windows NT 10.0; Win64; x64) Chrome/128.0,US
+2026-10-27 10:45:26,david_ops,10.0.1.22,SUCCESS,LOGIN,Mozilla/5.0 (Windows NT 10.0; Win64; x64) Chrome/128.0,US
+2026-10-27 10:49:13,hank_sec,192.168.1.150,SUCCESS,LOGIN,Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_7) Safari/605.1.15,US
+2026-10-27 10:49:29,alice_dev,10.0.2.45,SUCCESS,LOGIN,Mozilla/5.0 (Windows NT 10.0; Win64; x64; rv:129.0) Gecko/20100101 Firefox/129.0,US
+2026-10-27 11:06:30,bob_hr,192.168.1.101,SUCCESS,LOGIN,Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_7) Safari/605.1.15,US
+2026-10-27 11:16:06,david_ops,192.168.1.101,SUCCESS,LOGIN,Mozilla/5.0 (Windows NT 10.0; Win64; x64; rv:129.0) Gecko/20100101 Firefox/129.0,US
+2026-10-27 11:26:49,grace_fin,192.168.1.150,SUCCESS,LOGIN,Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_7) Safari/605.1.15,US
+2026-10-27 12:02:27,eve_qa,10.0.1.22,SUCCESS,LOGIN,Mozilla/5.0 (Windows NT 10.0; Win64; x64; rv:129.0) Gecko/20100101 Firefox/129.0,US
+2026-10-27 12:07:44,eve_qa,10.0.1.15,SUCCESS,LOGIN,Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_7) Safari/605.1.15,US
+2026-10-27 12:13:16,grace_fin,192.168.1.101,SUCCESS,LOGIN,Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_7) Safari/605.1.15,US
+2026-10-27 12:34:15,david_ops,192.168.1.150,SUCCESS,LOGIN,Mozilla/5.0 (Windows NT 10.0; Win64; x64; rv:129.0) Gecko/20100101 Firefox/129.0,US
+2026-10-27 12:45:19,hank_sec,192.168.1.101,FAILURE,LOGIN,Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_7) Safari/605.1.15,US
+2026-10-27 13:16:53,charlie_sales,10.0.1.22,SUCCESS,LOGIN,Mozilla/5.0 (Windows NT 10.0; Win64; x64) Chrome/128.0,US
+2026-10-27 13:38:20,charlie_sales,192.168.1.101,SUCCESS,LOGIN,Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_7) Safari/605.1.15,US
+2026-10-27 13:42:16,bob_hr,10.0.1.22,SUCCESS,LOGIN,Mozilla/5.0 (Windows NT 10.0; Win64; x64) Chrome/128.0,US
+2026-10-27 14:12:05,charlie_sales,192.168.1.150,SUCCESS,LOGIN,Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_7) Safari/605.1.15,US
+2026-10-27 14:13:17,grace_fin,10.0.2.45,SUCCESS,LOGIN,Mozilla/5.0 (Windows NT 10.0; Win64; x64) Chrome/128.0,US
+2026-10-27 14:26:38,david_ops,10.0.1.15,SUCCESS,LOGIN,Mozilla/5.0 (Windows NT 10.0; Win64; x64) Chrome/128.0,US
+2026-10-27 14:32:27,eve_qa,10.0.1.15,SUCCESS,LOGIN,Mozilla/5.0 (Windows NT 10.0; Win64; x64) Chrome/128.0,US
+2026-10-27 15:00:35,david_ops,192.168.1.150,SUCCESS,LOGIN,Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_7) Safari/605.1.15,US
+2026-10-27 15:02:18,hank_sec,10.0.1.22,SUCCESS,LOGIN,Mozilla/5.0 (Windows NT 10.0; Win64; x64; rv:129.0) Gecko/20100101 Firefox/129.0,US
+2026-10-27 15:11:23,bob_hr,192.168.1.101,SUCCESS,LOGIN,Mozilla/5.0 (Windows NT 10.0; Win64; x64) Chrome/128.0,US
+2026-10-27 15:17:02,eve_qa,192.168.1.150,SUCCESS,LOGIN,Mozilla/5.0 (Windows NT 10.0; Win64; x64; rv:129.0) Gecko/20100101 Firefox/129.0,US
+2026-10-27 15:24:35,alice_dev,10.0.1.15,SUCCESS,LOGIN,Mozilla/5.0 (Windows NT 10.0; Win64; x64; rv:129.0) Gecko/20100101 Firefox/129.0,US
+2026-10-27 15:38:13,bob_hr,192.168.1.101,SUCCESS,LOGIN,Mozilla/5.0 (Windows NT 10.0; Win64; x64) Chrome/128.0,US
+2026-10-27 15:44:10,alice_dev,10.0.1.15,SUCCESS,LOGIN,Mozilla/5.0 (Windows NT 10.0; Win64; x64) Chrome/128.0,US
+2026-10-27 15:59:43,eve_qa,192.168.1.150,SUCCESS,LOGIN,Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_7) Safari/605.1.15,US
+2026-10-27 16:10:44,grace_fin,10.0.1.15,SUCCESS,LOGIN,Mozilla/5.0 (Windows NT 10.0; Win64; x64) Chrome/128.0,US
+2026-10-27 16:16:26,alice_dev,192.168.1.150,SUCCESS,LOGIN,Mozilla/5.0 (Windows NT 10.0; Win64; x64; rv:129.0) Gecko/20100101 Firefox/129.0,US
+2026-10-27 16:31:59,alice_dev,10.0.2.45,SUCCESS,LOGIN,Mozilla/5.0 (Windows NT 10.0; Win64; x64; rv:129.0) Gecko/20100101 Firefox/129.0,US
+2026-10-27 16:39:09,grace_fin,192.168.1.150,SUCCESS,LOGIN,Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_7) Safari/605.1.15,US
+2026-10-27 17:13:05,hank_sec,192.168.1.101,SUCCESS,LOGIN,Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_7) Safari/605.1.15,US
+2026-10-27 17:40:40,eve_qa,10.0.2.45,SUCCESS,LOGIN,Mozilla/5.0 (Windows NT 10.0; Win64; x64) Chrome/128.0,US
+2026-10-27 20:30:00,david_ops,203.0.113.88,FAILURE,LOGIN,Hydra/9.5,CN
+2026-10-27 20:30:20,david_ops,203.0.113.88,FAILURE,LOGIN,Hydra/9.5,CN
+2026-10-27 20:30:40,david_ops,203.0.113.88,FAILURE,LOGIN,Hydra/9.5,CN
+2026-10-27 20:31:00,david_ops,203.0.113.88,FAILURE,LOGIN,Hydra/9.5,CN
+2026-10-27 20:31:20,david_ops,203.0.113.88,FAILURE,LOGIN,Hydra/9.5,CN
+2026-10-27 20:31:40,david_ops,203.0.113.88,FAILURE,LOGIN,Hydra/9.5,CN
+2026-10-27 20:32:10,david_ops,203.0.113.88,SUCCESS,LOGIN,Hydra/9.5,CN
+2026-10-28 09:06:35,charlie_sales,10.0.1.22,SUCCESS,LOGIN,Mozilla/5.0 (Windows NT 10.0; Win64; x64) Chrome/128.0,US
+2026-10-28 09:33:38,bob_hr,192.168.1.150,SUCCESS,LOGIN,Mozilla/5.0 (Windows NT 10.0; Win64; x64) Chrome/128.0,US
+2026-10-28 10:44:13,hank_sec,10.0.2.45,SUCCESS,LOGIN,Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_7) Safari/605.1.15,US
+2026-10-28 10:55:57,bob_hr,10.0.2.45,SUCCESS,LOGIN,Mozilla/5.0 (Windows NT 10.0; Win64; x64) Chrome/128.0,US
+2026-10-28 11:12:10,alice_dev,10.0.2.45,SUCCESS,LOGIN,Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_7) Safari/605.1.15,US
+2026-10-28 11:16:33,eve_qa,192.168.1.101,SUCCESS,LOGIN,Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_7) Safari/605.1.15,US
+2026-10-28 11:23:50,hank_sec,10.0.1.22,SUCCESS,LOGIN,Mozilla/5.0 (Windows NT 10.0; Win64; x64) Chrome/128.0,US
+2026-10-28 11:45:26,david_ops,192.168.1.101,SUCCESS,LOGIN,Mozilla/5.0 (Windows NT 10.0; Win64; x64; rv:129.0) Gecko/20100101 Firefox/129.0,US
+2026-10-28 11:47:02,alice_dev,192.168.1.101,SUCCESS,LOGIN,Mozilla/5.0 (Windows NT 10.0; Win64; x64; rv:129.0) Gecko/20100101 Firefox/129.0,US
+2026-10-28 11:58:58,grace_fin,10.0.1.22,SUCCESS,LOGIN,Mozilla/5.0 (Windows NT 10.0; Win64; x64) Chrome/128.0,US
+2026-10-28 12:09:05,charlie_sales,192.168.1.101,SUCCESS,LOGIN,Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_7) Safari/605.1.15,US
+2026-10-28 12:14:28,bob_hr,10.0.2.45,SUCCESS,LOGIN,Mozilla/5.0 (Windows NT 10.0; Win64; x64) Chrome/128.0,US
+2026-10-28 12:23:17,hank_sec,10.0.1.15,SUCCESS,LOGIN,Mozilla/5.0 (Windows NT 10.0; Win64; x64) Chrome/128.0,US
+2026-10-28 12:33:47,charlie_sales,10.0.1.22,SUCCESS,LOGIN,Mozilla/5.0 (Windows NT 10.0; Win64; x64) Chrome/128.0,US
+2026-10-28 12:41:30,alice_dev,192.168.1.101,SUCCESS,LOGIN,Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_7) Safari/605.1.15,US
+2026-10-28 13:16:28,eve_qa,10.0.2.45,SUCCESS,LOGIN,Mozilla/5.0 (Windows NT 10.0; Win64; x64; rv:129.0) Gecko/20100101 Firefox/129.0,US
+2026-10-28 13:34:38,grace_fin,10.0.1.15,SUCCESS,LOGIN,Mozilla/5.0 (Windows NT 10.0; Win64; x64) Chrome/128.0,US
+2026-10-28 13:41:20,grace_fin,192.168.1.101,SUCCESS,LOGIN,Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_7) Safari/605.1.15,US
+2026-10-28 14:10:24,david_ops,10.0.1.15,SUCCESS,LOGIN,Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_7) Safari/605.1.15,US
+2026-10-28 14:29:05,alice_dev,10.0.2.45,SUCCESS,LOGIN,Mozilla/5.0 (Windows NT 10.0; Win64; x64) Chrome/128.0,US
+2026-10-28 14:56:43,grace_fin,192.168.1.101,SUCCESS,LOGIN,Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_7) Safari/605.1.15,US
+2026-10-28 15:02:24,hank_sec,10.0.2.45,SUCCESS,LOGIN,Mozilla/5.0 (Windows NT 10.0; Win64; x64) Chrome/128.0,US
+2026-10-28 15:36:40,david_ops,10.0.1.22,SUCCESS,LOGIN,Mozilla/5.0 (Windows NT 10.0; Win64; x64; rv:129.0) Gecko/20100101 Firefox/129.0,US
+2026-10-28 15:43:25,alice_dev,192.168.1.150,SUCCESS,LOGIN,Mozilla/5.0 (Windows NT 10.0; Win64; x64; rv:129.0) Gecko/20100101 Firefox/129.0,US
+2026-10-28 15:46:27,alice_dev,10.0.1.22,SUCCESS,LOGIN,Mozilla/5.0 (Windows NT 10.0; Win64; x64; rv:129.0) Gecko/20100101 Firefox/129.0,US
+2026-10-28 17:31:45,charlie_sales,10.0.1.15,SUCCESS,LOGIN,Mozilla/5.0 (Windows NT 10.0; Win64; x64; rv:129.0) Gecko/20100101 Firefox/129.0,US
+2026-10-28 17:32:21,eve_qa,10.0.2.45,SUCCESS,LOGIN,Mozilla/5.0 (Windows NT 10.0; Win64; x64) Chrome/128.0,US
+2026-10-28 17:42:50,charlie_sales,10.0.2.45,SUCCESS,LOGIN,Mozilla/5.0 (Windows NT 10.0; Win64; x64; rv:129.0) Gecko/20100101 Firefox/129.0,US
+2026-10-29 00:00:00,alice_dev,185.220.101.5,FAILURE,LOGIN,Go-http-client/1.1,DE
+2026-10-29 00:00:15,bob_hr,185.220.101.5,FAILURE,LOGIN,Go-http-client/1.1,DE
+2026-10-29 00:00:30,eve_qa,185.220.101.5,FAILURE,LOGIN,Go-http-client/1.1,DE
+2026-10-29 00:00:45,grace_fin,185.220.101.5,FAILURE,LOGIN,Go-http-client/1.1,DE
+2026-10-29 00:01:00,hank_sec,185.220.101.5,FAILURE,LOGIN,Go-http-client/1.1,DE
+2026-10-29 00:01:15,admin_root,185.220.101.5,FAILURE,LOGIN,Go-http-client/1.1,DE
+2026-10-29 00:01:30,service_backup,185.220.101.5,FAILURE,LOGIN,Go-http-client/1.1,DE
+2026-10-29 00:01:45,alice_dev,185.220.101.5,FAILURE,LOGIN,Go-http-client/1.1,DE
+2026-10-29 00:02:00,bob_hr,185.220.101.5,FAILURE,LOGIN,Go-http-client/1.1,DE
+2026-10-29 00:02:15,eve_qa,185.220.101.5,FAILURE,LOGIN,Go-http-client/1.1,DE
+2026-10-29 00:02:30,grace_fin,185.220.101.5,FAILURE,LOGIN,Go-http-client/1.1,DE
+2026-10-29 00:02:45,hank_sec,185.220.101.5,FAILURE,LOGIN,Go-http-client/1.1,DE
+2026-10-29 00:03:00,admin_root,185.220.101.5,FAILURE,LOGIN,Go-http-client/1.1,DE
+2026-10-29 00:03:15,service_backup,185.220.101.5,FAILURE,LOGIN,Go-http-client/1.1,DE
+2026-10-29 09:27:30,alice_dev,192.168.1.101,SUCCESS,LOGIN,Mozilla/5.0 (Windows NT 10.0; Win64; x64; rv:129.0) Gecko/20100101 Firefox/129.0,US
+2026-10-29 09:28:49,david_ops,10.0.1.22,SUCCESS,LOGIN,Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_7) Safari/605.1.15,US
+2026-10-29 09:35:56,grace_fin,10.0.1.15,FAILURE,LOGIN,Mozilla/5.0 (Windows NT 10.0; Win64; x64) Chrome/128.0,US
+2026-10-29 09:59:37,bob_hr,192.168.1.150,SUCCESS,LOGIN,Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_7) Safari/605.1.15,US
+2026-10-29 10:01:41,charlie_sales,10.0.2.45,SUCCESS,LOGIN,Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_7) Safari/605.1.15,US
+2026-10-29 10:17:15,grace_fin,10.0.1.22,SUCCESS,LOGIN,Mozilla/5.0 (Windows NT 10.0; Win64; x64; rv:129.0) Gecko/20100101 Firefox/129.0,US
+2026-10-29 10:19:23,alice_dev,10.0.1.22,SUCCESS,LOGIN,Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_7) Safari/605.1.15,US
+2026-10-29 10:27:25,bob_hr,10.0.2.45,SUCCESS,LOGIN,Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_7) Safari/605.1.15,US
+2026-10-29 10:59:12,alice_dev,192.168.1.150,SUCCESS,LOGIN,Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_7) Safari/605.1.15,US
+2026-10-29 11:01:59,david_ops,192.168.1.150,SUCCESS,LOGIN,Mozilla/5.0 (Windows NT 10.0; Win64; x64; rv:129.0) Gecko/20100101 Firefox/129.0,US
+2026-10-29 11:09:23,bob_hr,10.0.1.15,SUCCESS,LOGIN,Mozilla/5.0 (Windows NT 10.0; Win64; x64) Chrome/128.0,US
+2026-10-29 11:10:17,alice_dev,10.0.2.45,SUCCESS,LOGIN,Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_7) Safari/605.1.15,US
+2026-10-29 12:20:43,alice_dev,10.0.1.15,FAILURE,LOGIN,Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_7) Safari/605.1.15,US
+2026-10-29 12:37:37,eve_qa,10.0.2.45,SUCCESS,LOGIN,Mozilla/5.0 (Windows NT 10.0; Win64; x64) Chrome/128.0,US
+2026-10-29 12:58:38,eve_qa,192.168.1.101,SUCCESS,LOGIN,Mozilla/5.0 (Windows NT 10.0; Win64; x64; rv:129.0) Gecko/20100101 Firefox/129.0,US
+2026-10-29 13:06:51,hank_sec,10.0.2.45,SUCCESS,LOGIN,Mozilla/5.0 (Windows NT 10.0; Win64; x64) Chrome/128.0,US
+2026-10-29 13:19:24,grace_fin,10.0.1.15,SUCCESS,LOGIN,Mozilla/5.0 (Windows NT 10.0; Win64; x64) Chrome/128.0,US
+2026-10-29 13:33:56,charlie_sales,192.168.1.101,SUCCESS,LOGIN,Mozilla/5.0 (Windows NT 10.0; Win64; x64; rv:129.0) Gecko/20100101 Firefox/129.0,US
+2026-10-29 13:52:02,grace_fin,10.0.1.15,SUCCESS,LOGIN,Mozilla/5.0 (Windows NT 10.0; Win64; x64; rv:129.0) Gecko/20100101 Firefox/129.0,US
+2026-10-29 13:58:29,charlie_sales,10.0.1.22,SUCCESS,LOGIN,Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_7) Safari/605.1.15,US
+2026-10-29 14:54:03,hank_sec,192.168.1.150,SUCCESS,LOGIN,Mozilla/5.0 (Windows NT 10.0; Win64; x64) Chrome/128.0,US
+2026-10-29 14:58:05,eve_qa,192.168.1.101,SUCCESS,LOGIN,Mozilla/5.0 (Windows NT 10.0; Win64; x64) Chrome/128.0,US
+2026-10-29 15:10:15,david_ops,10.0.2.45,SUCCESS,LOGIN,Mozilla/5.0 (Windows NT 10.0; Win64; x64; rv:129.0) Gecko/20100101 Firefox/129.0,US
+2026-10-29 15:16:35,eve_qa,10.0.1.15,SUCCESS,LOGIN,Mozilla/5.0 (Windows NT 10.0; Win64; x64) Chrome/128.0,US
+2026-10-29 15:17:35,charlie_sales,192.168.1.101,SUCCESS,LOGIN,Mozilla/5.0 (Windows NT 10.0; Win64; x64) Chrome/128.0,US
+2026-10-29 15:33:54,eve_qa,192.168.1.101,SUCCESS,LOGIN,Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_7) Safari/605.1.15,US
+2026-10-29 15:34:30,bob_hr,192.168.1.150,SUCCESS,LOGIN,Mozilla/5.0 (Windows NT 10.0; Win64; x64; rv:129.0) Gecko/20100101 Firefox/129.0,US
+2026-10-29 15:41:49,hank_sec,10.0.1.15,SUCCESS,LOGIN,Mozilla/5.0 (Windows NT 10.0; Win64; x64) Chrome/128.0,US
+2026-10-29 15:55:09,grace_fin,10.0.1.15,SUCCESS,LOGIN,Mozilla/5.0 (Windows NT 10.0; Win64; x64; rv:129.0) Gecko/20100101 Firefox/129.0,US
+2026-10-29 16:36:01,bob_hr,192.168.1.150,SUCCESS,LOGIN,Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_7) Safari/605.1.15,US
+2026-10-29 16:54:40,hank_sec,192.168.1.150,SUCCESS,LOGIN,Mozilla/5.0 (Windows NT 10.0; Win64; x64; rv:129.0) Gecko/20100101 Firefox/129.0,US
+2026-10-29 17:08:14,grace_fin,10.0.1.22,SUCCESS,LOGIN,Mozilla/5.0 (Windows NT 10.0; Win64; x64; rv:129.0) Gecko/20100101 Firefox/129.0,US
+2026-10-29 17:50:24,bob_hr,192.168.1.101,SUCCESS,LOGIN,Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_7) Safari/605.1.15,US
+2026-10-30 02:30:00,eve_qa,45.33.32.156,FAILURE,LOGIN,Tor Browser/13.0,NL
+2026-10-30 02:42:00,eve_qa,45.33.32.156,SUCCESS,LOGIN,Tor Browser/13.0,NL
+2026-10-30 02:54:00,eve_qa,45.33.32.156,FAILURE,LOGIN,Tor Browser/13.0,NL
+2026-10-30 03:06:00,alice_dev,45.33.32.156,SUCCESS,LOGIN,Tor Browser/13.0,NL
+2026-10-30 03:18:00,alice_dev,45.33.32.156,FAILURE,LOGIN,Tor Browser/13.0,NL

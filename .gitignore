@@ -1,0 +1,8 @@
+__pycache__/
+*.pyc
+.pytest_cache/
+*.joblib
+data/guardian.db
+data/quarantine_logs.json
+.vscode/
+.idea/
