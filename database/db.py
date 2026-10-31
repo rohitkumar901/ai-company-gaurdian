@@ -12,12 +12,12 @@ def get_connection(db_path: Optional[str] = None) -> sqlite3.Connection:
     return conn
 
 def hash_password(password: str) -> str:
-    """Secure SHA-256 with project salt for demonstration and prototype security."""
-    salt = "guardian_secure_salt_2026"
+    """Salted SHA-256 hash for secure authentication."""
+    salt = "guardian_enterprise_salt_2026"
     return hashlib.sha256((salt + password).encode('utf-8')).hexdigest()
 
 def init_db(db_path: Optional[str] = None) -> None:
-    """Initialize database tables, indexes, default admin/analyst users and system settings."""
+    """Initialize database tables, indexes, seed users and SOAR containment tables."""
     conn = get_connection(db_path)
     cursor = conn.cursor()
 
@@ -65,7 +65,7 @@ def init_db(db_path: Optional[str] = None) -> None:
     );
     """)
 
-    # 4. Alerts table
+    # 4. Alerts table (with MITRE ATT&CK integration)
     cursor.execute("""
     CREATE TABLE IF NOT EXISTS alerts (
         id INTEGER PRIMARY KEY AUTOINCREMENT,
@@ -76,6 +76,9 @@ def init_db(db_path: Optional[str] = None) -> None:
         detection_method TEXT NOT NULL CHECK(detection_method IN ('RULE', 'ML', 'HYBRID')),
         severity TEXT NOT NULL CHECK(severity IN ('LOW', 'MEDIUM', 'HIGH', 'CRITICAL')),
         anomaly_score REAL DEFAULT NULL,
+        mitre_technique_id TEXT DEFAULT 'T1110',
+        mitre_technique_name TEXT DEFAULT 'Brute Force',
+        mitre_tactic TEXT DEFAULT 'Credential Access',
         reason TEXT NOT NULL,
         status TEXT DEFAULT 'New' CHECK(status IN ('New', 'Investigating', 'Resolved', 'False Positive')),
         created_at TIMESTAMP DEFAULT CURRENT_TIMESTAMP,
@@ -83,7 +86,59 @@ def init_db(db_path: Optional[str] = None) -> None:
     );
     """)
 
-    # 5. Investigation notes table
+    # Migrate columns if existing database had older schema
+    try:
+        cursor.execute("ALTER TABLE alerts ADD COLUMN mitre_technique_id TEXT DEFAULT 'T1110';")
+    except sqlite3.OperationalError:
+        pass
+    try:
+        cursor.execute("ALTER TABLE alerts ADD COLUMN mitre_technique_name TEXT DEFAULT 'Brute Force';")
+    except sqlite3.OperationalError:
+        pass
+    try:
+        cursor.execute("ALTER TABLE alerts ADD COLUMN mitre_tactic TEXT DEFAULT 'Credential Access';")
+    except sqlite3.OperationalError:
+        pass
+
+    # 5. SOAR Containment: Blocked IPs
+    cursor.execute("""
+    CREATE TABLE IF NOT EXISTS blocked_ips (
+        id INTEGER PRIMARY KEY AUTOINCREMENT,
+        ip_address TEXT UNIQUE NOT NULL,
+        reason TEXT NOT NULL,
+        blocked_by TEXT NOT NULL,
+        status TEXT DEFAULT 'ACTIVE',
+        created_at TIMESTAMP DEFAULT CURRENT_TIMESTAMP
+    );
+    """)
+
+    # 6. SOAR Containment: Suspended Accounts
+    cursor.execute("""
+    CREATE TABLE IF NOT EXISTS suspended_accounts (
+        id INTEGER PRIMARY KEY AUTOINCREMENT,
+        username TEXT UNIQUE NOT NULL,
+        reason TEXT NOT NULL,
+        suspended_by TEXT NOT NULL,
+        status TEXT DEFAULT 'ACTIVE',
+        created_at TIMESTAMP DEFAULT CURRENT_TIMESTAMP
+    );
+    """)
+
+    # 7. SOAR Containment: Incident Response Playbook Audit
+    cursor.execute("""
+    CREATE TABLE IF NOT EXISTS containment_actions (
+        id INTEGER PRIMARY KEY AUTOINCREMENT,
+        alert_id TEXT,
+        action_type TEXT NOT NULL, -- e.g., 'IP_BLOCK', 'USER_SUSPEND', 'ENFORCE_MFA'
+        target TEXT NOT NULL,
+        status TEXT DEFAULT 'COMPLETED',
+        details TEXT,
+        executed_by TEXT NOT NULL,
+        executed_at TIMESTAMP DEFAULT CURRENT_TIMESTAMP
+    );
+    """)
+
+    # 8. Investigation notes table
     cursor.execute("""
     CREATE TABLE IF NOT EXISTS investigation_notes (
         id INTEGER PRIMARY KEY AUTOINCREMENT,
@@ -94,7 +149,7 @@ def init_db(db_path: Optional[str] = None) -> None:
     );
     """)
 
-    # 6. Audit history table
+    # 9. Audit history table
     cursor.execute("""
     CREATE TABLE IF NOT EXISTS audit_history (
         id INTEGER PRIMARY KEY AUTOINCREMENT,
@@ -106,7 +161,7 @@ def init_db(db_path: Optional[str] = None) -> None:
     );
     """)
 
-    # 7. System settings table
+    # 10. System settings table
     cursor.execute("""
     CREATE TABLE IF NOT EXISTS system_settings (
         setting_key TEXT PRIMARY KEY,
@@ -116,11 +171,12 @@ def init_db(db_path: Optional[str] = None) -> None:
     );
     """)
 
-    # Helpful Indexes for speed
+    # Performance Indexes
     cursor.execute("CREATE INDEX IF NOT EXISTS idx_events_user_time ON security_events(username, timestamp);")
     cursor.execute("CREATE INDEX IF NOT EXISTS idx_events_ip_time ON security_events(ip_address, timestamp);")
     cursor.execute("CREATE INDEX IF NOT EXISTS idx_alerts_status ON alerts(status);")
     cursor.execute("CREATE INDEX IF NOT EXISTS idx_alerts_user ON alerts(username);")
+    cursor.execute("CREATE INDEX IF NOT EXISTS idx_blocked_ip ON blocked_ips(ip_address);")
 
     # Seed Default Users if empty
     cursor.execute("SELECT COUNT(*) FROM users;")
@@ -140,7 +196,7 @@ def init_db(db_path: Optional[str] = None) -> None:
         for k, v in DEFAULT_SETTINGS.items():
             cursor.execute(
                 "INSERT OR IGNORE INTO system_settings (setting_key, setting_value, description) VALUES (?, ?, ?);",
-                (k, str(v), f"System configuration for {k}")
+                (k, str(v), f"Enterprise configuration for {k}")
             )
 
     conn.commit()
@@ -148,4 +204,4 @@ def init_db(db_path: Optional[str] = None) -> None:
 
 if __name__ == "__main__":
     init_db()
-    print("Database initialized successfully at", DATABASE_PATH)
+    print("Enterprise Database initialized successfully at", DATABASE_PATH)

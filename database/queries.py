@@ -47,7 +47,7 @@ def update_user_password(username: str, new_password: str, db_path: Optional[str
 
 def delete_user(username: str, db_path: Optional[str] = None) -> bool:
     if username == "admin":
-        return False # Protect primary admin
+        return False
     conn = get_connection(db_path)
     cur = conn.cursor()
     cur.execute("DELETE FROM users WHERE username = ?", (username,))
@@ -72,7 +72,6 @@ def create_import_job(filename: str, total_rows: int, valid_rows: int, invalid_r
     return job_id
 
 def insert_security_events(events: List[dict], import_job_id: int, db_path: Optional[str] = None) -> Tuple[int, int]:
-    """Inserts clean security events. Returns (inserted_count, duplicate_count)."""
     conn = get_connection(db_path)
     cur = conn.cursor()
     inserted = 0
@@ -137,11 +136,9 @@ def get_security_events(
 
     where_clause = " AND ".join(conditions)
 
-    # Count total matching
     cur.execute(f"SELECT COUNT(*) FROM security_events WHERE {where_clause}", params)
     total_count = cur.fetchone()[0]
 
-    # Query rows
     query = f"""
     SELECT id, import_job_id, timestamp, username, ip_address, login_result, event_type, device_info, country_code, is_off_hours
     FROM security_events 
@@ -185,14 +182,17 @@ def create_alert(
     severity: str,
     reason: str,
     anomaly_score: Optional[float] = None,
+    mitre_technique_id: str = "T1110",
+    mitre_technique_name: str = "Brute Force",
+    mitre_tactic: str = "Credential Access",
     db_path: Optional[str] = None
 ) -> int:
     conn = get_connection(db_path)
     cur = conn.cursor()
     cur.execute(
-        """INSERT INTO alerts (alert_id, event_id, username, detection_rule, detection_method, severity, anomaly_score, reason, status)
-           VALUES (?, ?, ?, ?, ?, ?, ?, ?, 'New')""",
-        (alert_id, event_id, username, detection_rule, detection_method, severity, anomaly_score, reason)
+        """INSERT INTO alerts (alert_id, event_id, username, detection_rule, detection_method, severity, anomaly_score, mitre_technique_id, mitre_technique_name, mitre_tactic, reason, status)
+           VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, 'New')""",
+        (alert_id, event_id, username, detection_rule, detection_method, severity, anomaly_score, mitre_technique_id, mitre_technique_name, mitre_tactic, reason)
     )
     aid = cur.lastrowid
     conn.commit()
@@ -295,6 +295,94 @@ def get_investigation_notes(alert_primary_id: int, db_path: Optional[str] = None
     conn.close()
     return rows
 
+# ----------------- SOAR CONTAINMENT ACTIONS QUERIES -----------------
+
+def block_ip(ip_address: str, reason: str, blocked_by: str, db_path: Optional[str] = None) -> bool:
+    conn = get_connection(db_path)
+    cur = conn.cursor()
+    try:
+        cur.execute(
+            "INSERT INTO blocked_ips (ip_address, reason, blocked_by, status) VALUES (?, ?, ?, 'ACTIVE')",
+            (ip_address.strip(), reason, blocked_by)
+        )
+        conn.commit()
+        return True
+    except sqlite3.IntegrityError:
+        return False
+    finally:
+        conn.close()
+
+def unblock_ip(ip_address: str, db_path: Optional[str] = None) -> bool:
+    conn = get_connection(db_path)
+    cur = conn.cursor()
+    cur.execute("DELETE FROM blocked_ips WHERE ip_address = ?", (ip_address.strip(),))
+    conn.commit()
+    deleted = cur.rowcount > 0
+    conn.close()
+    return deleted
+
+def list_blocked_ips(db_path: Optional[str] = None) -> List[dict]:
+    conn = get_connection(db_path)
+    cur = conn.cursor()
+    cur.execute("SELECT * FROM blocked_ips ORDER BY created_at DESC")
+    rows = [dict(r) for r in cur.fetchall()]
+    conn.close()
+    return rows
+
+def suspend_account(username: str, reason: str, suspended_by: str, db_path: Optional[str] = None) -> bool:
+    if username == "admin":
+        return False
+    conn = get_connection(db_path)
+    cur = conn.cursor()
+    try:
+        cur.execute(
+            "INSERT INTO suspended_accounts (username, reason, suspended_by, status) VALUES (?, ?, ?, 'ACTIVE')",
+            (username.strip(), reason, suspended_by)
+        )
+        conn.commit()
+        return True
+    except sqlite3.IntegrityError:
+        return False
+    finally:
+        conn.close()
+
+def reactivate_account(username: str, db_path: Optional[str] = None) -> bool:
+    conn = get_connection(db_path)
+    cur = conn.cursor()
+    cur.execute("DELETE FROM suspended_accounts WHERE username = ?", (username.strip(),))
+    conn.commit()
+    deleted = cur.rowcount > 0
+    conn.close()
+    return deleted
+
+def list_suspended_accounts(db_path: Optional[str] = None) -> List[dict]:
+    conn = get_connection(db_path)
+    cur = conn.cursor()
+    cur.execute("SELECT * FROM suspended_accounts ORDER BY created_at DESC")
+    rows = [dict(r) for r in cur.fetchall()]
+    conn.close()
+    return rows
+
+def record_containment_action(alert_id: str, action_type: str, target: str, details: str, executed_by: str, db_path: Optional[str] = None) -> int:
+    conn = get_connection(db_path)
+    cur = conn.cursor()
+    cur.execute(
+        "INSERT INTO containment_actions (alert_id, action_type, target, details, executed_by) VALUES (?, ?, ?, ?, ?)",
+        (alert_id, action_type, target, details, executed_by)
+    )
+    cid = cur.lastrowid
+    conn.commit()
+    conn.close()
+    return cid
+
+def list_containment_actions(limit: int = 50, db_path: Optional[str] = None) -> List[dict]:
+    conn = get_connection(db_path)
+    cur = conn.cursor()
+    cur.execute("SELECT * FROM containment_actions ORDER BY executed_at DESC LIMIT ?", (limit,))
+    rows = [dict(r) for r in cur.fetchall()]
+    conn.close()
+    return rows
+
 # ----------------- AUDIT & SETTINGS QUERIES -----------------
 
 def log_audit_event(username: str, action: str, target_id: str, details: str, db_path: Optional[str] = None) -> None:
@@ -334,7 +422,7 @@ def update_setting(key: str, value: str, db_path: Optional[str] = None) -> None:
     conn.commit()
     conn.close()
 
-# ----------------- DASHBOARD METRICS AGGREGATIONS -----------------
+# ----------------- DASHBOARD & MITRE AGGREGATIONS -----------------
 
 def get_dashboard_kpis(db_path: Optional[str] = None) -> Dict[str, Any]:
     conn = get_connection(db_path)
@@ -358,6 +446,12 @@ def get_dashboard_kpis(db_path: Optional[str] = None) -> Dict[str, Any]:
     cur.execute("SELECT COUNT(*) FROM alerts WHERE status IN ('Resolved', 'False Positive')")
     closed_alerts = cur.fetchone()[0]
 
+    cur.execute("SELECT COUNT(*) FROM blocked_ips")
+    blocked_ips_cnt = cur.fetchone()[0]
+
+    cur.execute("SELECT COUNT(*) FROM suspended_accounts")
+    suspended_users_cnt = cur.fetchone()[0]
+
     conn.close()
 
     return {
@@ -366,7 +460,9 @@ def get_dashboard_kpis(db_path: Optional[str] = None) -> Dict[str, Any]:
         "failed_events": failed_events,
         "suspicious_events": suspicious_events,
         "open_alerts": open_alerts,
-        "closed_alerts": closed_alerts
+        "closed_alerts": closed_alerts,
+        "blocked_ips_count": blocked_ips_cnt,
+        "suspended_accounts_count": suspended_users_cnt
     }
 
 def get_events_timeseries(db_path: Optional[str] = None) -> pd.DataFrame:
@@ -378,6 +474,18 @@ def get_events_timeseries(db_path: Optional[str] = None) -> pd.DataFrame:
     FROM security_events
     GROUP BY time_bucket, login_result
     ORDER BY time_bucket ASC
+    """
+    df = pd.read_sql_query(query, conn)
+    conn.close()
+    return df
+
+def get_mitre_summary(db_path: Optional[str] = None) -> pd.DataFrame:
+    conn = get_connection(db_path)
+    query = """
+    SELECT mitre_technique_id, mitre_technique_name, mitre_tactic, COUNT(*) as hit_count
+    FROM alerts
+    GROUP BY mitre_technique_id, mitre_technique_name, mitre_tactic
+    ORDER BY hit_count DESC
     """
     df = pd.read_sql_query(query, conn)
     conn.close()

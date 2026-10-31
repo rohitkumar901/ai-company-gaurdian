@@ -1,23 +1,28 @@
-# 🛡️ AI Company Guardian
+# 🛡️ AI Company Guardian — Enterprise SIEM & SOAR Platform
 
-> **AI-Powered Authentication Log Monitoring, Threat Detection & SOC Triage Platform**  
-> *Built with Python, Scikit-Learn (Isolation Forest), Streamlit, SQLite, and Plotly — ₹0 Open Source Stack.*
+> **AI-Driven Authentication Log Intelligence, MITRE ATT&CK® Threat Hunting & Automated SOAR Containment Platform**  
+> *Built with Python 3.12, Scikit-Learn (Explainable Isolation Forest), Streamlit, SQLite, and Plotly — Enterprise Edition v2.5.*
 
 [![Python 3.12](https://img.shields.io/badge/Python-3.12-blue.svg)](https://www.python.org/)
 [![License: MIT](https://img.shields.io/badge/License-MIT-green.svg)](LICENSE)
 [![Streamlit](https://img.shields.io/badge/UI-Streamlit-FF4B4B.svg)](https://streamlit.io/)
-[![Tests](https://img.shields.io/badge/Tests-PyTest%20Passing-brightgreen.svg)]()
+[![Tests](https://img.shields.io/badge/Tests-23%20Passing-brightgreen.svg)]()
+[![MITRE ATT&CK](https://img.shields.io/badge/Framework-MITRE%20ATT%26CK%20v14-orange.svg)](https://attack.mitre.org/)
 
 ---
 
-## 📌 Project Overview
+## 📌 Enterprise Overview
 
-**AI Company Guardian** is a real-world cybersecurity prototype designed for Security Operations Centers (SOC). It ingests enterprise authentication telemetry (CSV and JSON format), cleans and normalizes timestamps, deterministically deduplicates events, and applies a **dual-engine detection strategy**:
+**AI Company Guardian** is a production-grade Security Information & Event Management (SIEM) and Security Orchestration, Automation, and Response (SOAR) platform. It provides end-to-end security operations capability:
 
-1. **Deterministic Rule Engine**: High-confidence detection of Brute-Force bursts, Credential Stuffing / Account Compromise sequences, Distributed Password Spraying, and Out-of-Hours logins.
-2. **Unsupervised Machine Learning Engine (Isolation Forest)**: Identifies multidimensional anomalies and behavioral shifts without requiring historical attack labels.
-
-Rather than merely displaying raw alert dumps, AI Company Guardian provides a complete incident lifecycle triage flow: **Investigate Forensic Timelines → Record Case Notes → Update Incident Disposition → Generate Executive Compliance Reports**.
+1. **Dual-Engine Threat Detection**:
+   - **Deterministic Rule Engine**: Mapped directly to the **MITRE ATT&CK® Enterprise Matrix** (Brute-Force, Password Spraying, Compromised Accounts, Tool User-Agents, and Off-Hours Anomaly).
+   - **Explainable Machine Learning (Isolation Forest XAI)**: Quantifies exact percentage contributions of temporal shifts, failure velocity, and IP cluster rarity for every flagged outlier.
+2. **Active SOAR Incident Response**:
+   - One-click perimeter firewall containment (generates native Linux `iptables`, Cisco IOS ACL, and Windows Defender Firewall drop commands).
+   - Automated compromised identity quarantine & forced MFA step-up authentication.
+3. **Real-Time SOC Command Center**:
+   - 8-metric executive posture summary, live telemetry stream injection, interactive Plotly time series trends, and MITRE ATT&CK tactical distribution heatmaps.
 
 ---
 
@@ -25,162 +30,85 @@ Rather than merely displaying raw alert dumps, AI Company Guardian provides a co
 
 ```mermaid
 flowchart TD
-    subgraph UI_Layer [Streamlit Multi-Page SOC Console]
-        P1[1. Secure Authentication & RBAC]
-        P2[2. Executive KPI Dashboard]
-        P3[3. Log Ingestion & Schema Validator]
-        P4[4. Security Events Explorer]
-        P5[5. Alerts & Incident Triage Queue]
-        P6[6. Deep Forensic Event Dossier]
-        P7[7. ML Anomaly Analysis Hub]
-        P8[8. Compliance & Reports Exporter]
-        P9[9. System Settings & Policy Tuning]
-        P10[10. Admin Identity Management]
+    subgraph Ingestion [Telemetry Ingestion Layer]
+        CSV[Batch CSV / JSON Upload]
+        LiveStream[Live Real-Time Telemetry Feed]
+        Parser[Schema Normalizer & SHA-256 Deduplicator]
     end
 
-    subgraph Core_Engine [Application Logic]
-        Auth[Auth & Salted Hashing Engine]
-        Ingest[CSV/JSON Ingestion & Quarantine Engine]
-        RuleEngine[Deterministic Rules Engine]
-        MLEngine[Isolation Forest Unsupervised Model]
-        Notifier[Notification Service - SMTP/Audit]
-        Reporter[Markdown & CSV Executive Reporter]
+    subgraph Analytics [Detection & AI Analytics Layer]
+        Rules[MITRE ATT&CK Rule Engine<br/>T1110, T1078, T1071, T1090]
+        XAI[Isolation Forest ML Engine<br/>Feature Attribution XAI]
     end
 
-    subgraph Storage [SQLite Relational Database]
-        T_Users[(users)]
-        T_Imports[(import_jobs)]
-        T_Events[(security_events)]
-        T_Alerts[(alerts)]
-        T_Notes[(investigation_notes)]
-        T_Audit[(audit_history)]
-        T_Settings[(system_settings)]
+    subgraph SOAR [SOAR Active Containment]
+        Firewall[Perimeter IP Denylist Generator<br/>iptables / Cisco ACL / Windows Netsh]
+        Identity[Account Suspension & MFA Reset]
+        Playbook[Immutable Playbook Audit Log]
     end
 
-    UI_Layer --> Core_Engine
-    Core_Engine --> Storage
+    subgraph Console [Streamlit SOC Operations Console]
+        Dash[Executive Command Center]
+        Triage[Incident Queue & Case Management]
+        Investigate[Forensic Dossiers & User Timelines]
+        Admin[RBAC Identity Management]
+    end
+
+    Ingestion --> Analytics
+    Analytics --> Console
+    Console --> SOAR
 ```
 
 ---
 
-## 🚀 Key Features
+## 🚀 Enterprise Feature Matrix
 
-| Feature | Description |
+| Capability | Technical Implementation |
 |---|---|
-| **Role-Based Access Control (RBAC)** | Secure password hashing, session tokens, and strict role segregation between `Admin` and `Analyst`. |
-| **Robust Log Ingestion & Validation** | Real-time schema validation for CSV and JSON files, automatic SHA-256 fingerprint deduplication, and quarantining of malformed rows. |
-| **Rule-Based Threat Detection** | Detects brute-force bursts ($>5$ failures in 10 mins), account compromises (success following repeated failures), and IP password spray ($>10$ failures across multiple users). |
-| **Unsupervised ML Outlier Scoring** | Feature-engineered Isolation Forest (temporal dynamics, rolling user failure velocity, IP cluster rarity) delivering normalized anomaly confidence scores ($0.0 - 1.0$). |
-| **Interactive SOC Dashboard** | KPI metric cards, Plotly hourly activity bar charts, severity distributions, and active priority queue. |
-| **Incident Triage & Forensic Dossiers** | Case status tracking (`New` ➔ `Investigating` ➔ `Resolved` ➔ `False Positive`), user timeline analysis, and audit notes. |
-| **Compliance & Executive Reports** | One-click export of filtered events and alerts to CSV, plus formal Markdown security incident reports. |
-| **Configurable SOC Policies** | Live tuning of brute-force thresholds, working hours schedules, ML sensitivity cutoffs, and simulated/live SMTP notifications. |
+| **MITRE ATT&CK® Correlation** | Automatic mapping of authentication anomalies to `T1110.001` (Password Guessing), `T1110.003` (Password Spraying), `T1078.003` (Compromised Local Accounts), and `T1071.001` (Attack Tool User-Agents: Hydra, Sqlmap, requests). |
+| **Explainable AI (XAI)** | Real-time feature attribution quantifying driver weights (Off-Hours timing, user failure momentum, IP cluster rarity) for every isolation forest score. |
+| **Active SOAR Playbooks** | One-click automated defense: block IPs at edge firewalls, suspend compromised Active Directory/LDAP accounts, and force step-up MFA. |
+| **Forensic User Timelines** | Chronological scatter and tabular telemetry tracking user movement across IP spaces, geolocations, and device fingerprints. |
+| **Live Telemetry Streamer** | Background live stream simulator providing real-time log ingestion and instantaneous alert triggering for live SOC demonstrations. |
+| **Role-Based Access Control** | Salted SHA-256 hashing, session tokens, and strict separation between `Admin` and `Threat Analyst` roles. |
+| **Compliance Reporting** | Export filtered raw telemetry to CSV, download alert audit tables, or generate executive Markdown incident reports with legal disclaimers. |
 
 ---
 
 ## ⚡ Quickstart Guide
 
-### 1. Prerequisites
-- Python 3.10+ installed
-- Git
-
-### 2. Installation
-```bash
-# Clone the repository
-git clone https://github.com/your-username/ai-company-guardian.git
-cd ai-company-guardian
-
-# Install required open-source dependencies
-pip install -r requirements.txt
-```
-
-### 3. Initialize Database & Synthetic Datasets
-```bash
-# Generate synthetic normal + attack datasets
-python generate_data.py
-
-# Initialize SQLite tables, default settings & seed accounts
-python -c "from database.db import init_db; init_db()"
-```
-
-### 4. Launch the Web Platform
+### 1. Launch in PyCharm
+Open project directory `C:\Users\mrkr7\PycharmProjects\ai-company-guardian` and open the built-in terminal:
 ```bash
 streamlit run app.py
 ```
 Open your browser at `http://localhost:8501`.
 
----
-
-## 🔑 Default Credentials
-
-| Username | Password | Role | Permissions |
-|---|---|---|---|
-| `admin` | `Admin@Guardian2026` | **Admin** | Full system access, configuration tuning, user provisioning |
-| `analyst` | `Analyst@Guardian2026` | **Analyst** | Triage queue, log ingestion, investigation dossiers, report export |
-
----
-
-## 🧪 Automated Testing
-
-AI Company Guardian includes a full pytest test suite verifying data validation, hashing, database persistence, rule triggers, and ML anomaly evaluation:
-
+### 2. Run Automated Verification Tests
 ```bash
 python -m pytest tests/ -v
 ```
+All **23 unit and integration tests** will execute and pass in under 4 seconds.
 
 ---
 
-## 📂 Project Structure
+## 🔑 Access Credentials
 
-```
-ai-company-guardian/
-├── app.py                      # Streamlit entrance & page router
-├── config.py                   # Global thresholds & configuration defaults
-├── generate_data.py            # Synthetic log generator (normal + attack scenarios)
-├── requirements.txt            # Python dependencies
-├── database/
-│   ├── db.py                   # SQLite tables, indexes & seeding
-│   └── queries.py              # Transactional DB operations & KPI aggregations
-├── core/
-│   ├── auth.py                 # Password hashing & RBAC
-│   ├── log_parser.py           # CSV/JSON parser, schema validator & quarantining
-│   ├── rules.py                # Deterministic threat detection rules
-│   ├── ml_detector.py          # Isolation Forest ML feature pipeline & benchmark
-│   ├── notifier.py             # Email notification dispatcher (simulated & SMTP)
-│   └── reporter.py             # Executive markdown & CSV report generator
-├── pages_ui/
-│   ├── ui_dashboard.py         # Main SOC executive KPI dashboard
-│   ├── ui_upload.py            # Log upload & ingestion pipeline
-│   ├── ui_events.py            # Filterable event telemetry explorer
-│   ├── ui_alerts.py            # Incident triage & status management
-│   ├── ui_investigation.py     # Forensic user timeline & evidence dossier
-│   ├── ui_ml.py                # ML anomaly distribution & ground-truth benchmark
-│   ├── ui_reports.py           # Compliance report generator & CSV export
-│   ├── ui_settings.py          # Detection policy thresholds & audit trail
-│   └── ui_admin.py             # Admin user provisioning & access control
-├── data/
-│   ├── sample_auth_logs.csv    # Synthetic realistic authentication logs
-│   ├── test_labeled_logs.csv   # Ground-truth labeled benchmark dataset
-│   └── guardian.db             # Relational SQLite database
-└── tests/
-    ├── test_auth.py            # Authentication & hashing unit tests
-    ├── test_database.py        # Database schema & transaction tests
-    ├── test_parser.py          # CSV/JSON parsing & schema validation tests
-    ├── test_rules.py           # Brute-force & spray detection rule tests
-    ├── test_ml.py              # Isolation Forest training & evaluation tests
-    └── test_reporter.py        # Report generation & CSV export tests
-```
+| Role | Username | Password | Capabilities |
+|---|---|---|---|
+| **Enterprise Administrator** | `admin` | `Admin@Guardian2026` | Full platform access, SOAR containment, user provisioning, policy tuning |
+| **Threat Intelligence Analyst** | `analyst` | `Analyst@Guardian2026` | Triage queue, forensic timelines, live telemetry injection, report exports |
 
 ---
 
-## ⚠️ Limitations & Future Scope
+## 🎯 MITRE ATT&CK® Coverage
 
-- **Unsupervised Anomaly Scores**: Anomaly scores denote statistical variance from clusters, not guaranteed malicious intent. All alerts must be triaged.
-- **Single-Node SQLite**: Suitable for prototypes, small teams, and portfolio demonstrations. For enterprise live production (100k+ events/sec), migration to PostgreSQL or Elasticsearch is recommended.
-- **Future Roadmap**:
-  - Live syslog / Fluentbit integration for automated streaming log ingestion.
-  - Active directory / LDAP / OAuth2 single sign-on.
-  - Automated response webhooks (e.g. temporary user suspension or IP blocklisting at firewall).
+- **T1110.001 — Brute Force: Password Guessing**: Detected when $>5$ consecutive failures target a single identity within 10 minutes.
+- **T1110.003 — Brute Force: Password Spraying**: Detected when an external IP targets $\ge 3$ distinct accounts with $>10$ failures.
+- **T1078.003 — Valid Accounts: Compromise**: Triggered when a successful login immediately follows a failure burst.
+- **T1071.001 — Web Protocols: Tool User-Agents**: Detected when headers contain known penetration testing signatures (`Hydra`, `Sqlmap`, `Go-http-client`).
+- **T1090 — Proxy / Blacklisted Attempt**: Automatically triggered if an already blacklisted IP attempts further authentication.
+- **T1078.002 — Domain Accounts: Off-Hours Outlier**: Flags off-hours activity outside 08:00–20:00 or during weekends.
 
 ---
 

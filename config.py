@@ -1,7 +1,7 @@
 import os
 from pathlib import Path
 
-# Base Paths
+# Base Paths (Fully dynamic and relative)
 BASE_DIR = Path(__file__).resolve().parent
 DATA_DIR = BASE_DIR / "data"
 DATABASE_PATH = DATA_DIR / "guardian.db"
@@ -13,10 +13,10 @@ DATA_DIR.mkdir(parents=True, exist_ok=True)
 
 # Application Metadata
 APP_NAME = "AI Company Guardian"
-APP_TAGLINE = "AI-Powered Authentication & Security Log Intelligence Platform"
-APP_VERSION = "1.0.0-PROTOTYPE"
+APP_TAGLINE = "Enterprise AI-Driven SIEM & SOC Threat Hunting Platform"
+APP_VERSION = "2.5.0-ENTERPRISE"
 
-# Default Detection Thresholds
+# Default Detection & SOAR Thresholds
 DEFAULT_SETTINGS = {
     "brute_force_failure_threshold": 5,      # Failed attempts count
     "brute_force_window_minutes": 10,       # Window for burst in minutes
@@ -25,13 +25,14 @@ DEFAULT_SETTINGS = {
     "ip_spray_threshold": 10,               # Distinct user failures from same IP
     "ip_spray_window_minutes": 15,          # Window in minutes
     "ml_contamination_rate": 0.05,          # Isolation Forest contamination expectation
-    "ml_anomaly_threshold": 0.65,           # Normalised score cutoff for alert generation
-    "alert_retention_days": 90,             # Retention policy
+    "ml_anomaly_threshold": 0.65,           # Normalized score cutoff for alert generation
+    "auto_containment_enabled": False,      # Automatic IP block on CRITICAL alerts
+    "alert_retention_days": 180,            # Retention policy
     "smtp_enabled": False,                  # Email dispatch
-    "smtp_server": "smtp.example.com",
+    "smtp_server": "smtp.company.internal",
     "smtp_port": 587,
-    "smtp_sender": "guardian-alerts@company.internal",
-    "smtp_recipient": "soc-team@company.internal",
+    "smtp_sender": "soc-alerts@company.internal",
+    "smtp_recipient": "security-incident-response@company.internal",
     "smtp_username": "",
     "smtp_password": ""
 }
@@ -43,3 +44,17 @@ OPTIONAL_COLUMNS = ["event_type", "device_info", "country_code", "is_vpn"]
 
 # Valid Login Results
 VALID_LOGIN_RESULTS = {"SUCCESS", "FAILURE"}
+
+# Known Attack Tool User-Agents (MITRE ATT&CK T1071.001)
+SUSPICIOUS_USER_AGENTS = [
+    "hydra",
+    "sqlmap",
+    "nmap",
+    "nikto",
+    "python-requests",
+    "go-http-client",
+    "curl",
+    "wget",
+    "metasploit",
+    "masscan"
+]
