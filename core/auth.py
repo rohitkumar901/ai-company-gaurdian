@@ -1,15 +1,41 @@
+import hashlib
 import streamlit as st
 from typing import Optional, Dict
-from database.db import hash_password
+from database.db import hash_password, get_connection
 from database.queries import get_user_by_username, log_audit_event
 
+def legacy_hash(password: str) -> str:
+    """Fallback legacy hash for backward compatibility."""
+    salt = "guardian_secure_salt_2026"
+    return hashlib.sha256((salt + password).encode('utf-8')).hexdigest()
+
 def authenticate_user(username: str, password: str) -> Optional[Dict]:
-    """Verify username and password hash against the database."""
-    user = get_user_by_username(username.strip())
+    """
+    Verify username and password against the database.
+    Supports auto-migration if password was hashed with previous salt.
+    """
+    u_clean = username.strip()
+    user = get_user_by_username(u_clean)
     if not user:
         return None
-    if user["password_hash"] == hash_password(password):
+
+    current_hash = hash_password(password)
+    stored_hash = user["password_hash"]
+
+    # Match with current salt
+    if stored_hash == current_hash:
         return user
+
+    # Backward compatibility with legacy salt
+    if stored_hash == legacy_hash(password):
+        # Auto-upgrade stored hash to current salt
+        conn = get_connection()
+        conn.execute("UPDATE users SET password_hash = ? WHERE id = ?", (current_hash, user["id"]))
+        conn.commit()
+        conn.close()
+        user["password_hash"] = current_hash
+        return user
+
     return None
 
 def init_session_state():
